@@ -1,7 +1,7 @@
 var body = document.body;
 
 //align Div 
-var quizContainer= document.getElementById("quiz");
+var quizContainer= document.getElementById("home");
 quizContainer.display="flex";
 quizContainer.style.justifyContent="center";
 quizContainer.style.flexDirection="column";

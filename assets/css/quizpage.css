@@ -1,0 +1,25 @@
+.answer-choice {
+    /* display: flex;
+    flex-direction: column; */
+    justify-content: flex-start;
+    
+    margin-bottom: 0.5rem;
+    /* border: 2px solid black; */
+}
+.container{
+    flex-direction: column;
+}
+.option{
+    display: flex;
+    justify-content: flex-start;
+    background-color:rgb(183, 134, 204);
+    color:white;
+    font-size:10px;
+    padding:12px 28px;
+    text-align: center;
+    width:fit-content;
+    margin-top: 10px;
+    border-radius: 12px;
+    border:none;
+    box-shadow: black;
+}
