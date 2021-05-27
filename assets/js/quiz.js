@@ -1,13 +1,6 @@
 const questionEl = document.getElementById("question");
 const choiceEl =Array.from(document.getElementsByClassName("option"));
-console.log(choiceEl);
 var questionIndex; //to randomly select a question
-
-// const c1 = document.getElementById("choice1");
-// const c2 = document.getElementById("choice2");
-// const c3 =document.getElementById("choice3");
-// const c4=document.getElementById("choice4");
-
 var quizScoreEl =0;
 var questionCounterEl =0; 
 var currentQuestion ={};
@@ -70,17 +63,26 @@ function playQuiz(){
 function getQuestion(){
        
        questionCounterEl++;
-       questionIndex =Math.floor(Math.random()*questionBankArr.length-1);
-       currentQuestion =questionBankArr[questionIndex];
+       //questionIndex =Math.floor(Math.random()*questionBankArr.length-1);
+       for(questionIndex=0;questionIndex<questionBankArr.length;questionIndex++)
+       {
+        currentQuestion =questionBankArr[questionIndex];
        questionEl.innerText=currentQuestion.question;
        choiceEl.forEach(choiceItem =>
        {
            var num = choiceItem.dataset["choicenum"];
            console.log(num);
-            choiceEl.innerText=currentQuestion["choice"+num];
-            console.log(choiceEl.innerText);
-            choiceEl.innerHTML=choiceEl.innerText;
+            choiceItem.innerText=currentQuestion["choice"+num];
+            console.log(choiceItem.innerText);
+            
        });
+    }
 };
+choiceEl.forEach(choiceItem =>{
+    choiceItem.addEventListener("click",checkandLoad=>
+    {
+        
+    
+});
 
 startQuiz();
