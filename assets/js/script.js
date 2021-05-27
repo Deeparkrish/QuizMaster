@@ -2,17 +2,13 @@ var body = document.body;
 
 //align Div 
 var quizContainer= document.getElementById("quiz");
-quizContainer.style.width="100vw";
-quizContainer.style.height="100vh";
 quizContainer.display="flex";
 quizContainer.style.justifyContent="center";
 quizContainer.style.flexDirection="column";
-quizContainer.style.alignContent="center";
 quizContainer.style.alignItems ="center";
 quizContainer.style.fontFamily="Arial";
 quizContainer.style.textAlign="center";
-quizContainer.style.maxWidth="80rem";
-quizContainer.style.margin ="0 auto";
+quizContainer.style.minHeight="100vh";
 
 
 // Add Link to high score 
@@ -27,13 +23,15 @@ highScoreLink.style.flexWrap="wrap";
 highScoreLink.style.marginLeft="50px"
 quizContainer.appendChild(highScoreLink);
 
+
+// time display
 var timeDisplayEl =document.createElement("h4");
 timeDisplayEl.textContent="Time : 0";
 timeDisplayEl.style.textAlign="right"
 timeDisplayEl.style.display ="flex";
+timeDisplayEl.style.margin="flex-start";
+timeDisplayEl.style.marginRight="500px";
 
-timeDisplayEl.style.margin="flex-end";
-//timeDisplayEl.style.marginRight="500px";
 
 quizContainer.appendChild(timeDisplayEl);
 
@@ -71,12 +69,21 @@ buttonElement.style.backgroundColor= "lightblue";
 buttonElement.style.textAlign="center";
 buttonElement.display="flex";
 buttonElement.style.justifyContent="center";
-buttonElement.style.padding ="12px 28px";
 buttonElement.style.borderRadius="12px";
-buttonElement.onmouseover= function changeColor(){
-this.backgroundColor="green"; };
+buttonElement.style.padding ="12px 28px";
+buttonElement.addEventListener("click",function(){
+    window.location ="assets/quiz.html"
+
+});
+buttonElement.addEventListener("mouseover", function(){
+    buttonElement.style.cursor="pointer";
+    
+});
 quizContainer.appendChild(buttonElement);
 
 //Add All the child elements to body 
 body.appendChild(quizContainer);
+
+
+
 
