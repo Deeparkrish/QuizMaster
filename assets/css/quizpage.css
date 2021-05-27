@@ -1,11 +1,4 @@
-.answer-choice {
-    /* display: flex;
-    flex-direction: column; */
-    justify-content: flex-start;
-    
-    margin-bottom: 0.5rem;
-    /* border: 2px solid black; */
-}
+
 .container{
     flex-direction: column;
 }
@@ -22,4 +15,14 @@
     border-radius: 12px;
     border:none;
     box-shadow: black;
+}
+.option:hover{
+    cursor:pointer;
+    transform: translateY(-0.1rem);
+    box-shadow: rgb(31, 27, 22);
+}
+.option :disabled{
+    box-shadow: none;
+    cursor:default;
+    transform: none;
 }
