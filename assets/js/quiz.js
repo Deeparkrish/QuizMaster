@@ -1,6 +1,8 @@
 const questionEl = document.getElementById("question");
 const choiceEl =Array.from(document.getElementsByClassName("option"));
 console.log(choiceEl);
+var questionIndex; //to randomly select a question
+
 // const c1 = document.getElementById("choice1");
 // const c2 = document.getElementById("choice2");
 // const c3 =document.getElementById("choice3");
@@ -65,19 +67,20 @@ function startQuiz(){
 function playQuiz(){
     getQuestion();
 }
-var i=0;
 function getQuestion(){
        
        questionCounterEl++;
-       currentQuestion =questionBankArr[i];
+       questionIndex =Math.floor(Math.random()*questionBankArr.length-1);
+       currentQuestion =questionBankArr[questionIndex];
        questionEl.innerText=currentQuestion.question;
-       choiceEl.forEach(choice);
-       
-
-       function choice( ){
-       var num = choiceEl.dataset["choiceNo"];
-        choiceEl.innerText=currentQuestion["choice"+num];
-       }
+       choiceEl.forEach(choiceItem =>
+       {
+           var num = choiceItem.dataset["choicenum"];
+           console.log(num);
+            choiceEl.innerText=currentQuestion["choice"+num];
+            console.log(choiceEl.innerText);
+            choiceEl.innerHTML=choiceEl.innerText;
+       });
 };
 
 startQuiz();
