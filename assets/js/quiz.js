@@ -1,11 +1,17 @@
+//create a question element 
 const questionEl = document.getElementById("question");
+//Create an array of choices element  for four button choices 
 const choiceEl =Array.from(document.getElementsByClassName("option"));
-var questionIndex; //to randomly select a question
-let quizScoreEl =5;
+// varaible declaration 
+var questionIndex =0;  // Starting quiz array index 
+let quizScoreEl =5;     
 var questionCounterEl =0; 
-var currentQuestion ={};
-var acceptResponse =false;
+var currentQuestion ={};    //  array to select the cuurent question displayed
+var acceptResponse =false; // If user has clicked a respnse 
 
+const _MAX_QUESTIONS=5; //Maximum number of questions 
+
+// Question Bank array of objects  - Question,choices and answer
 const questionBankArr =[
     {
         question:" What function returns a random number between 0 (inclusive),  and 1?",
@@ -51,54 +57,77 @@ const questionBankArr =[
     }
 
 ];
-
+//Initialize variables and 
 function startQuiz(){
-    questionCounterEl =0;
-    quizScoreEl=5;
-    playQuiz();
+    
+        questionCounterEl =0;
+        quizScoreEl=5;
+        currentQuestion={};
+        // Call playing the game 
+        playQuiz();
+       
+        return;
+   
 }
+// PLaying quiz 
 function playQuiz(){
-    getQuestion();
+        // get the question set to be displayed 
+        getQuestion();
+        return;
+
 }
+// Display if answer is correct or wrong 
 function displayMessage(str){
-       alert(str);
+        alert(str);
+        return;
 }
+//Feteches the question from the array and displays it along with choices
 function getQuestion(){
        
-       questionCounterEl++;
-       questionIndex =Math.floor(Math.random()*questionBankArr.length-1);
-        currentQuestion =questionBankArr[questionIndex];
-       questionEl.innerText=currentQuestion.question;
-       choiceEl.forEach(choiceItem =>
-       {
-           var num = choiceItem.dataset["choicenum"];
-           console.log(num);
-            choiceItem.innerText=currentQuestion["choice"+num];
-            console.log(choiceItem.innerText);
+        // If the quiz is done or timer runs out 
+        if(questionIndex>=_MAX_QUESTIONS)
+        {
+            // go to the page to display score 
+           return window.location.assign ("./highscore.html");
             
-       });
-    
+        }
+        // get the current object fron the array 
+        currentQuestion =questionBankArr[questionIndex];
+        questionEl.innerText=currentQuestion.question;
+        //select each choice from array and add to the corresponding button
+        choiceEl.forEach(choiceItem =>
+        {
+            var num = choiceItem.dataset["choicenum"];
+            choiceItem.innerText=currentQuestion["choice"+num];
+            // console.log(choiceItem.innerText);  
+        });
+
+        return;
 };
+//When each button is clicked
 choiceEl.forEach(choiceItem =>{
     choiceItem.addEventListener("click",checkandLoad=>
     {
-        console.log(checkandLoad.target);
-        var num =choiceItem.dataset["choicenum"];
-        console.log(num);
-        // console.log(choiceItem.innerText);
-        console.log(questionBankArr[num].answer);
-        if (num===questionBankArr[num].answer)
-            displayMessage("Correct!");
-            
+        //console.log(checkandLoad.target);
+        // Geth button  details that was clicked 
+        var selectedButton =checkandLoad.target;
+        // get the corresponding  choice chosen 
+        var selectedChoice= selectedButton.dataset["choicenum"];
+        console.log(selectedChoice);
+        console.log(selectedButton.innerText);
+        console.log(questionBankArr[questionIndex].answer);
+        //Compare if the answer choices are same 
+        if (selectedChoice == questionBankArr[questionIndex].answer)
+        {  displayMessage("Correct!");
+        }    
         else {
             displayMessage("Wrong!");
             quizScoreEl-=1;
         }
-            
+        // increment the index 
+        questionIndex++;   
+        //Gwt the next question in the Array 
         getQuestion();
-
-       
-    
 });
 });
 startQuiz();
