@@ -15,44 +15,44 @@ const _MAX_QUESTIONS=5; //Maximum number of questions
 const questionBankArr =[
     {
         question:" What function returns a random number between 0 (inclusive),  and 1?",
-        choice1:"Math.ceil",
-        choice2:"Math.random",
-        choice3:"Math.round",
-        choice4:"Math.floor",
+        choice1:"1. Math.ceil",
+        choice2:"2. Math.random",
+        choice3:"3. Math.round",
+        choice4:"4. Math.floor",
         answer: 2
     },
     {
         question:"What does DOM stand for?",
-        choice1:"Document Operation Module",
-        choice2:"Dynamic Object model",
-        choice3:"Document Object model",
-        choice4:"Document Object Module",
+        choice1:"1. Document Object Module",
+        choice2:"2. Dynamic Object model",
+        choice3:"3. Document Object model",
+        choice4:"4. Document Object Module",
         answer: 3
 
     },
     {
         question:" How do you select all p elements inside a div element?",
-        choice1:"div p",
-        choice2:"div{p}",
-        choice3:"div.p",
-        choice4:"div(p)",
+        choice1:"1. div p",
+        choice2:"2. div{p}",
+        choice3:"3. div.p",
+        choice4:"4. div(p)",
         answer:1
     
     },
     {
         question:"Which function of Array object extracts a section of an array and returns a new array?",
-        choice1:"shift()",
-        choice2:"reverse()",
-        choice3:"slice()",
-        choice4:"split()",
+        choice1:"1. shift()",
+        choice2:"2. reverse()",
+        choice3:"3. slice()",
+        choice4:"4. split()",
         answer:3      
     },
     {
         question:"Which tag is used for creating a drop-down selection list? ",
-        choice1:"<select>",
-        choice2:"<option>",
-        choice3:"<dropdown>",
-        choice4:"<list>",
+        choice1:"1.<select>",
+        choice2:"2.<option>",
+        choice3:"3.<dropdown>",
+        choice4:"4.<list>",
         answer:3      
     }
 
