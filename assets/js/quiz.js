@@ -1,7 +1,7 @@
 const questionEl = document.getElementById("question");
 const choiceEl =Array.from(document.getElementsByClassName("option"));
 var questionIndex; //to randomly select a question
-var quizScoreEl =0;
+let quizScoreEl =5;
 var questionCounterEl =0; 
 var currentQuestion ={};
 var acceptResponse =false;
@@ -54,18 +54,19 @@ const questionBankArr =[
 
 function startQuiz(){
     questionCounterEl =0;
-    quizScoreEl=0;
+    quizScoreEl=5;
     playQuiz();
 }
 function playQuiz(){
     getQuestion();
 }
+function displayMessage(str){
+       alert(str);
+}
 function getQuestion(){
        
        questionCounterEl++;
-       //questionIndex =Math.floor(Math.random()*questionBankArr.length-1);
-       for(questionIndex=0;questionIndex<questionBankArr.length;questionIndex++)
-       {
+       questionIndex =Math.floor(Math.random()*questionBankArr.length-1);
         currentQuestion =questionBankArr[questionIndex];
        questionEl.innerText=currentQuestion.question;
        choiceEl.forEach(choiceItem =>
@@ -76,13 +77,28 @@ function getQuestion(){
             console.log(choiceItem.innerText);
             
        });
-    }
+    
 };
 choiceEl.forEach(choiceItem =>{
     choiceItem.addEventListener("click",checkandLoad=>
     {
-        
+        console.log(checkandLoad.target);
+        var num =choiceItem.dataset["choicenum"];
+        console.log(num);
+        // console.log(choiceItem.innerText);
+        console.log(questionBankArr[num].answer);
+        if (num===questionBankArr[num].answer)
+            displayMessage("Correct!");
+            
+        else {
+            displayMessage("Wrong!");
+            quizScoreEl-=1;
+        }
+            
+        getQuestion();
+
+       
     
 });
-
+});
 startQuiz();
