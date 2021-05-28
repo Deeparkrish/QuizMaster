@@ -5,10 +5,17 @@ var quizContainer= document.getElementById("home");
 quizContainer.display="flex";
 quizContainer.style.justifyContent="center";
 quizContainer.style.flexDirection="column";
-quizContainer.style.alignItems ="center";
+// quizContainer.style.alignItems ="center";
 quizContainer.style.fontFamily="Arial";
-quizContainer.style.textAlign="center";
+// quizContainer.style.textAlign="center";
 quizContainer.style.minHeight="100vh";
+
+// header container 
+var hstimerContainer =document.createElement("div");
+hstimerContainer.class="hstimer";
+hstimerContainer.display="flex";
+hstimerContainer.flexDirection="column";
+hstimerContainer.justifyContent="space-between";
 
 
 // Add Link to high score 
@@ -16,24 +23,24 @@ var highScoreLink= document.createElement("a");
 highScoreLink.textContent="View high-score"
 highScoreLink.href= "assets/highscore.html";
 highScoreLink.class="btn";
-highScoreLink.style.textAlign="left";
-highScoreLink.style.display="flex";
-highScoreLink.style.alignItems="flex-start";
-highScoreLink.style.flexWrap="wrap";
-highScoreLink.style.marginLeft="50px"
-quizContainer.appendChild(highScoreLink);
+// highScoreLink.style.textAlign="left";
+// highScoreLink.style.display="flex";
+// highScoreLink.style.alignItems="flex-start";
+// highScoreLink.style.flexWrap="wrap";
+// highScoreLink.style.marginLeft="50px"
+hstimerContainer.appendChild(highScoreLink);
+quizContainer.appendChild(hstimerContainer);
 
 
 // time display
 var timeDisplayEl =document.createElement("h4");
 timeDisplayEl.textContent="Time : 0";
-timeDisplayEl.style.textAlign="right"
-timeDisplayEl.style.display ="flex";
-timeDisplayEl.style.margin="flex-start";
-timeDisplayEl.style.marginRight="500px";
-
-
-quizContainer.appendChild(timeDisplayEl);
+// timeDisplayEl.style.textAlign="right"
+// timeDisplayEl.style.display ="flex";
+// timeDisplayEl.style.margin="flex-start";
+// timeDisplayEl.style.marginRight="500px";
+hstimerContainer.appendChild(timeDisplayEl);
+quizContainer.appendChild(hstimerContainer);
 
 // Page 1 - Add a centered h1
 var headerElement1 =document.createElement("h1");

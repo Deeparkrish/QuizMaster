@@ -8,6 +8,7 @@ let quizScoreEl =5;
 var questionCounterEl =0; 
 var currentQuestion ={};    //  array to select the cuurent question displayed
 var acceptResponse =false; // If user has clicked a respnse 
+var timeLeft =50;
 
 const _MAX_QUESTIONS=5; //Maximum number of questions 
 
@@ -63,6 +64,9 @@ function startQuiz(){
         questionCounterEl =0;
         quizScoreEl=5;
         currentQuestion={};
+        timeLeft=50;
+        //timer function
+
         // Call playing the game 
         playQuiz();
        
@@ -85,7 +89,7 @@ function displayMessage(str){
 function getQuestion(){
        
         // If the quiz is done or timer runs out 
-        if(questionIndex>=_MAX_QUESTIONS)
+        if((questionIndex>=_MAX_QUESTIONS)||(timeLeft <=0))
         {
             // go to the page to display score 
            return window.location.assign ("./highscore.html");
@@ -99,7 +103,6 @@ function getQuestion(){
         {
             var num = choiceItem.dataset["choicenum"];
             choiceItem.innerText=currentQuestion["choice"+num];
-            // console.log(choiceItem.innerText);  
         });
 
         return;
@@ -122,7 +125,7 @@ choiceEl.forEach(choiceItem =>{
         }    
         else {
             displayMessage("Wrong!");
-            quizScoreEl-=1;
+            timeLeft-=10;
         }
         // increment the index 
         questionIndex++;   
@@ -130,4 +133,16 @@ choiceEl.forEach(choiceItem =>{
         getQuestion();
 });
 });
+// timer function
+var downloadTimer = setInterval(function(){
+    if(timeLeft <= 0){
+      clearInterval(downloadTimer);
+      document.getElementById("countdown").innerHTML = "Finished";
+      alert("Time Up !!!");
+    } else {
+      document.getElementById("countdown").innerHTML ="Time:"+ timeLeft ;
+    }
+    timeLeft -= 1;
+  }, 500);
+
 startQuiz();

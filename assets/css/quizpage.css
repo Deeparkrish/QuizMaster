@@ -27,14 +27,22 @@
     cursor:default;
     transform: none;
 }
-#hstimer {
+#hs-timer-container {
     display:flex;
     flex-direction: row;
     justify-content: space-between;
+    width:100%;
 }
-#hsitem{
+#hs-item{
     display:flex;
     flex-direction: column;
-    justify-content:space-evenly;
+    justify-content:space-between;
+
+}
+#timer-item{
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between;
+    
 
 }
