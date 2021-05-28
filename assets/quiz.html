@@ -20,15 +20,21 @@
                    <p id ="countdown">Timer:</p>    
                 </div>
             </div>
-            <h2 id ="question">Question </h2>
+            <div id =quiz-container  class ="flex-col">
+                <h2 id ="question">Question </h2>
+                <div class ="answer-choice  flex-col">
+                    <button class= "option"  id ="choice1" data-choicenum="1">Choice1</button>      
+                    <button class= "option"  id ="choice2" data-choicenum="2">Choice2</button>  
+                    <button class= "option"  id ="choice3" data-choicenum="3">Choice3</button>  
+                    <button class= "option"  id ="choice4" data-choicenum="4">Choice4</button>
+                </div>
+                <div id ="bottom-note" >
+                    <h2 id= "message"></h2>
+                    <h2 id ="right-answer"></h2>
+                </div>
+            
+            </div>
         </div>
-        <div class ="answer-choice  flex-col">
-            <button class= "option"  id ="choice1" data-choicenum="1">Choice1</button>      
-            <button class= "option"  id ="choice2" data-choicenum="2">Choice2</button>  
-            <button class= "option"  id ="choice3" data-choicenum="3">Choice3</button>  
-            <button class= "option"  id ="choice4" data-choicenum="4">Choice4</button>
-        </div>
-       
     </div>
 <script src="./js/quiz.js"></script>
 </body>

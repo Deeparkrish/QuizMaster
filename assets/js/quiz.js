@@ -15,7 +15,7 @@ const _MAX_QUESTIONS=5; //Maximum number of questions
 // Question Bank array of objects  - Question,choices and answer
 const questionBankArr =[
     {
-        question:" What function returns a random number between 0 (inclusive),  and 1?",
+        question:"Q1. What function returns a random number between 0 (inclusive),  and 1?",
         choice1:"1. Math.ceil",
         choice2:"2. Math.random",
         choice3:"3. Math.round",
@@ -23,7 +23,7 @@ const questionBankArr =[
         answer: 2
     },
     {
-        question:"What does DOM stand for?",
+        question:"Q2.What does DOM stand for?",
         choice1:"1. Document Object Module",
         choice2:"2. Dynamic Object model",
         choice3:"3. Document Object model",
@@ -32,7 +32,7 @@ const questionBankArr =[
 
     },
     {
-        question:" How do you select all p elements inside a div element?",
+        question:"Q3.How do you select all p elements inside a div element?",
         choice1:"1. div p",
         choice2:"2. div{p}",
         choice3:"3. div.p",
@@ -41,7 +41,7 @@ const questionBankArr =[
     
     },
     {
-        question:"Which function of Array object extracts a section of an array and returns a new array?",
+        question:"Q4.Which function of Array object extracts a section of an array and returns a new array?",
         choice1:"1. shift()",
         choice2:"2. reverse()",
         choice3:"3. slice()",
@@ -49,7 +49,7 @@ const questionBankArr =[
         answer:3      
     },
     {
-        question:"Which tag is used for creating a drop-down selection list? ",
+        question:"Q5.Which tag is used for creating a drop-down selection list? ",
         choice1:"1.<select>",
         choice2:"2.<option>",
         choice3:"3.<dropdown>",
@@ -82,12 +82,22 @@ function playQuiz(){
 }
 // Display if answer is correct or wrong 
 function displayMessage(str){
-        alert(str);
+        
+        if(str === "Incorrect!")
+        document.getElementById("message").style.color="red" ;
+        else 
+        document.getElementById("message").style.color="green" ;
+
+        document.getElementById("message").innerHTML =str ;
+
+        // document.getElementById("right-answer").style.color="brown" ;
+        // document.getElementById("right-answer").innerHTML="Answer:" + ;       
         return;
 }
 //Feteches the question from the array and displays it along with choices
 function getQuestion(){
        
+        
         // If the quiz is done or timer runs out 
         if((questionIndex>=_MAX_QUESTIONS)||(timeLeft <=0))
         {
@@ -95,6 +105,8 @@ function getQuestion(){
            return window.location.assign ("./highscore.html");
             
         }
+        // document.getElementById("message").innerHTML ="";
+
         // get the current object fron the array 
         currentQuestion =questionBankArr[questionIndex];
         questionEl.innerText=currentQuestion.question;
@@ -111,8 +123,9 @@ function getQuestion(){
 choiceEl.forEach(choiceItem =>{
     choiceItem.addEventListener("click",checkandLoad=>
     {
-        //console.log(checkandLoad.target);
-        // Geth button  details that was clicked 
+
+        
+        // Get details of the button  clicked 
         var selectedButton =checkandLoad.target;
         // get the corresponding  choice chosen 
         var selectedChoice= selectedButton.dataset["choicenum"];
@@ -124,11 +137,12 @@ choiceEl.forEach(choiceItem =>{
         {  displayMessage("Correct!");
         }    
         else {
-            displayMessage("Wrong!");
+            displayMessage("Incorrect!");
             timeLeft-=10;
         }
         // increment the index 
         questionIndex++;   
+        
         //Gwt the next question in the Array 
         getQuestion();
 });
@@ -138,11 +152,12 @@ var downloadTimer = setInterval(function(){
     if(timeLeft <= 0){
       clearInterval(downloadTimer);
       document.getElementById("countdown").innerHTML = "Finished";
-      alert("Time Up !!!");
+      return window.location.assign ("./highscore.html");
+      
     } else {
       document.getElementById("countdown").innerHTML ="Time:"+ timeLeft ;
     }
     timeLeft -= 1;
-  }, 500);
+  }, 700);
 
 startQuiz();
