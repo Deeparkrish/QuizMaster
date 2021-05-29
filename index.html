@@ -6,16 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Master</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    
+
 </head>
 <body>
-    <div class="container">
-        <div id="home">
-            <!-- <h1>Coding Quiz Challenge </h1>
-             -->
+    <!-- Container for Link to high score and time :header -->
+    <div class ="header">
+        <div class="scores">
+            <a id="highscores-link" href="./highscore.html">View high scores</a>
+        </div>
+        <div id="countdown" class="timer">
+            Time: 75
+        </div>
+    </div>   
+    <!-- Container for introduction and start button -->
+    <div id="start-container" class="start-quiz">
+        <h1>Welcome to JavaScript Quiz Challenge</h1>
+        <p>
+            You have 75 seconds to try to get the highest score by answering five
+            series of JavaScript questions. Incorrect answers will penalize your
+            time by ten seconds. Your total score will be your time after you
+            answer the last question. Click start when you are ready.
+        </p>
+        <div class="button-control">
+            <button id="start-btn" class="btn">Start Quiz</button>
+        </div>
+    </div>
+            
+    <div id ="quiz-container"  class ="flex-col hide">
+                <h1 id ="question">Question </h1>
+                <div class ="answer-choice  flex-col">
+                    <button class= "option"  id ="choice1" data-choicenum="1">Choice1</button>      
+                    <button class= "option"  id ="choice2" data-choicenum="2">Choice2</button>  
+                    <button class= "option"  id ="choice3" data-choicenum="3">Choice3</button>  
+                    <button class= "option"  id ="choice4" data-choicenum="4">Choice4</button>
+                </div>
+                <div id ="bottom-note" >
+                    <h2 id= "message"></h2>
+                    <h2 id ="right-answer"></h2>
+                </div>
+            
+            </div>
         </div>
     </div>
 
-    
-    <script src="./assets/js/script.js"></script>
+    <div id ="score-container"  class="flex-col hide">     
+        <form>
+                <h1>All done!</h1>
+                <h2 id ="final-score"></h2>
+            <!-- <div class= "quiz-container flex-row"> -->
+              <label id ="player-initials">Your initials:</label>
+              <input  type="text" 
+                      name ="initials" 
+                      id="myText"
+                      placeholder="initials"></input>
+              <button id ="show-score" class ="btn" type="submit">SUBMIT</button>
+        </form>
+    </div>
+<!-- Include the Java script  -->
+<script src="./assets/js/script.js">
+
+</script>
 </body>
 </html>

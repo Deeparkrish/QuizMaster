@@ -1,22 +1,48 @@
-var body = document.body;
-function preventBack() { window.history.forward(); }
-setTimeout("preventBack()", 0);
-window.onunload = function () { null };
-preventBack();
 
-var highscoreContainerEl =document.createElement("div");
-highscoreContainerEl.style.display="flex";
-highscoreContainerEl.style.justifyContent="center";
-highscoreContainerEl.style.flexDirection="column";
-// highscoreContainerEl.style.alignItems="center";
-highscoreContainerEl.style.minHeight="100vh";
+// Show high scores
+function showHighScores(initials) {
+        if (typeof initials == "string") {
+        var score = {
+            initials, timeLeft
+        }
+        scores.push(score)
+    }
 
-var highscoreHeaderEl = document.createElement("h1");
-highscoreHeaderEl.textContent="HIGH SCORE";
-highscoreHeaderEl.style.textAlign="flex-start";
+    var highScoreEl = document.getElementById("highscore");
+    highScoreEl.innerHTML = "";
+    //console.log(scores)
+    for (i = 0; i < scores.length; i++) {
+        var div1 = document.createElement("div");
+        div1.setAttribute("class", "name-div");
+        div1.innerText = scores[i].initials;
+        var div2 = document.createElement("div");
+        div2.setAttribute("class", "score-div");
+        div2.innerText = scores[i].timeLeft;
 
-highscoreContainerEl.appendChild(highscoreHeaderEl);
+        highScoreEl.appendChild(div1);
+        highScoreEl.appendChild(div2);
+    }
 
-body.appendChild(highscoreContainerEl);
+    localStorage.setItem("scores", JSON.stringify(scores));
+
+};
 
 
+submitButton.addEventListener("click", function (event) {
+    event.preventDefault()
+    var initials = document.querySelector("#initials-field").value;
+    showHighScores(initials);
+});
+
+
+// Restart or reload the page
+restartButton.addEventListener("click", function () {
+    window.location.reload();
+});
+
+
+// Clear localStorage items 
+clearScoreButton.addEventListener("click", function () {
+    localStorage.clear();
+    document.getElementById("highscore").innerHTML = "";
+});
