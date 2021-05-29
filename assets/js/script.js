@@ -8,6 +8,9 @@ quizcontainerEl =document.getElementById("quiz-container");
 const questionEl = document.getElementById("question");
 //Create an array of choices element  for four button choices 
 const choiceEl =Array.from(document.getElementsByClassName("option"));
+
+//Score Element 
+var scoreEl = document.getElementById("countdown");
 // varaible declaration 
 var questionIndex =0;  // Starting quiz array index     
 var currentQuestion ={};    //  array to select the cuurent question displayed
@@ -61,7 +64,7 @@ const questionBankArr =[
     }
 
 ];
-
+var countDownTimer;
 startButtonEl.addEventListener("click", startQuiz);
 
 //Initialize 
@@ -73,10 +76,25 @@ function startQuiz(){
         currentQuestion={};
         timeLeft=75;
         //timer function
+
+        //localStorage.clear();
         //hide the current diplay 
         startContainerEl.classList.add("hide");
         // Call playing the game 
         quizcontainerEl.classList.remove("hide");
+        countDownTimer = setInterval(function(){
+    
+            if(timeLeft === 0){
+              clearInterval(countDownTimer);
+              document.getElementById("countdown").innerHTML = "Finished";
+              
+            } else {
+              document.getElementById("countdown").innerHTML ="Time:"+ timeLeft ;  
+            }
+            timeLeft --;
+             return;   
+            
+          },1000);
         getQuestion();
        
         return;
@@ -100,9 +118,13 @@ function getQuestion(){
         // If the quiz is done or timer runs out 
         if((questionIndex >= _MAX_QUESTIONS)||(timeLeft <=0))
         {
+            
+            //timeLeft.textContent ="Time :" +timeLeft;
+           
+            scoreEl.textContent ="Time :" +timeLeft;
+            JSON.stringify(localStorage.setItem("score" , timeLeft));
             //clear the timer 
             clearInterval(countDownTimer);
-            timeLeft.textContent ="Time :" +timeLeft;
             //set timeout ???
             //hide the quiz content 
             quizcontainerEl.classList.add("hide");
@@ -111,6 +133,7 @@ function getQuestion(){
             //  display score 
             return DisplayScore();
         }
+       
         // get the current object fron the array 
         currentQuestion =questionBankArr[questionIndex];
         console.log(questionIndex);
@@ -153,20 +176,20 @@ choiceEl.forEach(choiceItem =>{
 
 // timer function
 // function CountdownTimer(){
-var countDownTimer = setInterval(function(){
-    timeLeft --;
-    if(timeLeft === 0){
-      clearInterval(countDownTimer);
-      document.getElementById("countdown").innerHTML = "Finished";
-      
-    } else {
-      document.getElementById("countdown").innerHTML ="Time:"+ timeLeft ;  
-    }
-   
-     return;   
+// var countDownTimer = setInterval(function(){
     
-  },1000);
-// };
+//     if(timeLeft === 0){
+//       clearInterval(countDownTimer);
+//       document.getElementById("countdown").innerHTML = "Finished";
+      
+//     } else {
+//       document.getElementById("countdown").innerHTML ="Time:"+ timeLeft ;  
+//     }
+//     timeLeft --;
+//      return;   
+    
+//   },1000);
+//  };
 /* Score.js */
 
 var nameEl; 
@@ -174,17 +197,20 @@ function DisplayScore(){
     displayscoreEl=document.getElementById("final-score");
     displayscoreEl.innerHTML="Your final score is :" +timeLeft;
 
+
+
 };
 var saveScoreButtonEl =  document.getElementById("show-score");
-    saveScoreButtonEl.addEventListener("click",function() {
+saveScoreButtonEl.addEventListener("click",function(event) {
+     event.preventDefault();
         nameEl = document.getElementById("myText").value;
         console.log(nameEl);
 
 
         //Save score and name details in Local storage 
 
-        return window.location.assign ="highscore.html";
+         window.location.href="highscore.html";
 
-    }) ;
+}) ;
 
    
