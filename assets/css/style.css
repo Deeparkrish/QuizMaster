@@ -80,11 +80,14 @@ body {
     font-size:large;
     padding:10px;
     text-align:left;
-    width: auto;
+    width: 40%;
     margin-top: 10px;
     border-radius: 10px;
     border:none;
     box-shadow: rgb(230, 151, 34);
+}
+.btn{
+    width:auto;
 }
 .option:hover{
     cursor:pointer;

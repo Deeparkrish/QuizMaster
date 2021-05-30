@@ -24,8 +24,9 @@
         <h1>Welcome to JavaScript Quiz Challenge</h1>
         <p>
             You have 75 seconds to try to get the highest score by answering five
-            series of JavaScript questions. Incorrect answers will penalize your
-            time by ten seconds. Your total score will be your time after you
+            series of questions.Try to asnwer the questions within the time limit.
+            Keep in mind, incorrect answers will penalize your time by ten seconds. 
+            Your total score will be your time left after you
             answer the last question. Click start when you are ready.
         </p>
         <div class="button-control">
@@ -58,10 +59,12 @@
               <label id ="player-initials">Your initials:</label>
               <input  type="text" 
                       name ="initials" 
-                      id="myText"
+                      id="username"
                       placeholder="initials"></input>
-              <button id ="show-score" class ="btn" >SUBMIT</button>
-        </form>
+                <div id="msg"></div>
+                <button id ="save-score" class ="btn"  >SUBMIT</button>
+                <button id ="high-score" class ="btn hide"  >VIEW HIGH SCORE</button>
+            </form>
     </div>
 <!-- Include the Java script  -->
 <script src="./assets/js/script.js">
