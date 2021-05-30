@@ -1,27 +1,17 @@
-
+var body = document.body;
 //Button for viweing high score
 const highScoreList = document.getElementById("highscore-list");
-const hscoreArr = JSON.parse(localStorage.getItem("higScoreArr"))||[];
-
-highScoreList.innerHTML= hscoreArr.map(score =>
-{
-    console.log(score);
-    console.log(score.name);
-    console.log(score.score);
-    console.log("<li>${score.name}-${score.score} </li>");
-});
-
-for (let i = 0; i < hscoreArr.length; i++) {
-   console.log(hscoreArr[i].name);
-     }
+const hscoreArr = JSON.parse(localStorage.getItem("highScoreArr"))||[];
 
 
-// submitButton.addEventListener("click", function (event) {
-//     event.preventDefault()
-//     var initials = document.querySelector("#initials-field").value;
-//     showHighScores(initials);
-// });
-
+var scoreli;
+for (let i = 0; i <hscoreArr.length; i++) {
+    scoreli = document.createElement("li");
+    scoreli.innerHTML =hscoreArr[i].name + hscoreArr[i].score ;
+    console.log(scoreli.innerHTML);
+    highScoreList.appendChild(scoreli);
+  }
+  
 
 // // Restart or reload the page
 //  restartButton.addEventListener("click", function () {
@@ -30,7 +20,7 @@ for (let i = 0; i < hscoreArr.length; i++) {
 
 
 // // Clear localStorage items 
-// clearScoreButton.addEventListener("click", function () {
-//     localStorage.clear();
-//     document.getElementById("highscore").innerHTML = "";
-// });
+clearScoreButton.addEventListener("click", function () {
+    localStorage.clear();
+   // document.getElementById("highscore").innerHTML = "";
+});

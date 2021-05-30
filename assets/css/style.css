@@ -146,20 +146,16 @@ input[type="text"] {
   }
 
   /* Highscores Page */
-  .highscore {
+  .highs-cores {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
   }
   
-  .name-div,
-  .score-div {
-    flex: 1 35%;
-    padding: 10px 0;
-    border: 1px solid var(--correct-color);
-  }
+ 
   #restart-btn{
-      width:fit-content;
+      width:auto;
+      text-decoration: none;
   }
  .button-container{
      display: flex;
