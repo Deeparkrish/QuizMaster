@@ -1,9 +1,9 @@
 //Start Button element 
-startButtonEl = document.getElementById("start-btn");
+ var startButtonEl = document.getElementById("start-btn");
 // header container 
-startContainerEl =document.getElementById("start-container");
+var startContainerEl =document.getElementById("start-container");
 //quiz container 
-quizcontainerEl =document.getElementById("quiz-container");
+var quizcontainerEl =document.getElementById("quiz-container");
 //create a question element 
 const questionEl = document.getElementById("question");
 //Create an array of choices element  for four button choices 
@@ -20,11 +20,16 @@ const _MAX_QUESTIONS=5; //Maximum number of questions
 
 // Button to Save user name and score in Local storage 
 var saveScoreButtonEl =  document.getElementById("save-score");
-// Message element to display warning message
-var messageEl = document.getElementById("msg");
-//playername element 
-var nameEl;
 
+//Button for viweing high score
+var highScoreButtonEl = document.getElementById("high-score");
+
+//playername element 
+const nameEl =document.getElementById("username");
+//Arrya of objects to store name-score in local storage 
+const highScoreArr = JSON.parse(localStorage.getItem("highScoreArr")) ||[];
+//  variable to set count 
+const TOP_SCORES =5;
 // Question Bank array of objects  - Question,choices and answer
 const questionBankArr =[
     {
@@ -180,7 +185,7 @@ choiceEl.forEach(choiceItem =>{
     });
 });
 
-// var nameEl; 
+//Display final score 
 function displayScore(){
     displayscoreEl=document.getElementById("final-score");
     displayscoreEl.innerHTML="Your final score is :" +timeLeft;
@@ -189,46 +194,42 @@ function displayScore(){
 
 
 
-function getInitials(){
-    //
-    nameEl = document.getElementById("username").value;
-    console.log(nameEl);  
-    messageEl.style.fontSize="large";
-    messageEl.style.fontWeight= "bold";
-    messageEl.style.color="darkblue";
-    if(nameEl ==null || nameEl=="") {
-        messageEl.disabled ="true";
-        messageEl.innerHTML ="Name cannot be blank";          
-        getInitials();
-        return;
-    } 
-     return;
-    
-};
-highScoreButtonEl = document.getElementById("high-score");
+//get player initials()
+nameEl.addEventListener("keyup",()=>{
+    saveScoreButtonEl.disabled = !nameEl.value;
+    console.log(nameEl.value); 
 
+});
+
+// save score and sort them from heighest to lowest 
 saveScoreButtonEl.addEventListener("click",function(event) {
      
     event.preventDefault();
-    getInitials();    
-    var score = JSON.parse(localStorage.getItem("score"));
-    console.log(score);
-    scoreEl.value= score;
-    messageEl.disabled ="false";
-    messageEl.innerHTML="Registered successfully";
-    localStorage.setItem("score",score);
-    localStorage.setItem("name", nameEl);
-
-    highScoreButtonEl.classList.remove("hide");
-    return ;
-    
-    
+   
+    const mostRecentscore = JSON.parse(localStorage.getItem("score"));
+    const playername = nameEl.value;
+    console.log(mostRecentscore);    
+    const scoreObj={
+        score: mostRecentscore,
+        name:playername
+    };
+    highScoreArr.push(scoreObj);
+    highScoreArr.sort((a,b) => b.score -a.score);
+    highScoreArr.splice(TOP_SCORES);
+    localStorage.setItem("highscorearray",JSON.stringify(highScoreArr));
+  // highScoreButtonEl.classList.remove("hide");
+    // saveScoreButtonEl.classList.add("hide");
+    return window.location.href="./highscore.html";
+  
 }) ;
 
 
-highScoreButtonEl.addEventListener("click",function(event) {
 
-    event.preventDefault();
-    return window.location.href="highscore.html";
+// highScoreButtonEl.addEventListener("click",function(event) {
 
-});
+//     event.preventDefault();
+//     window.location.assign="highscore.html";
+
+//     return;
+
+// });
