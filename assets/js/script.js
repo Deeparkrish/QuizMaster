@@ -21,9 +21,6 @@ const _MAX_QUESTIONS=5; //Maximum number of questions
 // Button to Save user name and score in Local storage 
 var saveScoreButtonEl =  document.getElementById("save-score");
 
-//Button for viweing high score
-var highScoreButtonEl = document.getElementById("high-score");
-
 //playername element 
 const nameEl =document.getElementById("username");
 //Arrya of objects to store name-score in local storage 
@@ -214,9 +211,10 @@ saveScoreButtonEl.addEventListener("click",function(event) {
         name:playername
     };
     highScoreArr.push(scoreObj);
+    localStorage.setItem("highScoreArr",JSON.stringify(highScoreArr));
     highScoreArr.sort((a,b) => b.score -a.score);
-    highScoreArr.splice(TOP_SCORES);
-    localStorage.setItem("highscorearray",JSON.stringify(highScoreArr));
+     highScoreArr.splice(TOP_SCORES);
+    // // localStorage.setItem("highscorearray",JSON.stringify(highScoreArr));
   // highScoreButtonEl.classList.remove("hide");
     // saveScoreButtonEl.classList.add("hide");
     return window.location.href="./highscore.html";
@@ -224,12 +222,3 @@ saveScoreButtonEl.addEventListener("click",function(event) {
 }) ;
 
 
-
-// highScoreButtonEl.addEventListener("click",function(event) {
-
-//     event.preventDefault();
-//     window.location.assign="highscore.html";
-
-//     return;
-
-// });

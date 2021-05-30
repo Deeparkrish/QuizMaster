@@ -8,18 +8,16 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div id="highscores" class="highscores-container ">
-        <div id="high-scores">
-            <h1 class="centered">High-Score</h1>
-            <div id="highscore" class="highscore highscore-list">
-            </div>
+    <div  lass="highscores-container ">
+        <div id="high-scores" class = "center flex-col">
+            <h1>High-Score</h1>
+            <ul id="highscore-list"></ul>
             <div class ="button-container" >
-                <button id="restart-btn"  class = "btn">RestartQuiz!</button>
+                <a class = "btn" href ="index.html">RestartQuiz!</a>
                 <button id="clear-btn" class = "btn">Clear Scores</button>
             </div>
         </div>        
     </div>
-<script src ="./assets/js/highscore.js">
-</script> 
+    <script src ="./assets/js/highscore.js"></script> 
 </body>
 </html>
