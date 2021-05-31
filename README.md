@@ -19,7 +19,7 @@ The following have been incorporated in this project :
   * Once the game is over, the user saves is name and score. 
   * The highest score is calculated -using Array.sort(a,b) function. 
   * This data is stored as array of objects (name,score) in the localstorage using Web APIs.
-  * The high score list is retrieved from Local storage and displayed, when the user saves his score details and clicks submit button.
+  * The high score list is retrieved from Local storage and top 5 scores are displayed, when the user saves his score details and clicks submit button.
   * The user is given an option to play the game again, which navigates him to home page.
   * The user is also  given an option to clear the scores, which  clears the data in local storage.
 
