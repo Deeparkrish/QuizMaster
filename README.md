@@ -39,8 +39,7 @@ HTML
 CSS
 
 **Website:**
-deeparkrish.github.io/quizmaster/
-
+https://deeparkrish.github.io/QuizMaster/
 
 **Contribution**
 Made with ❤️ by [Deepa Krishnan]
