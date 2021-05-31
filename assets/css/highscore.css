@@ -1,9 +1,5 @@
 /* style the list items to display score  */
-*{
-    margin :0;
-    padding:0;
 
-}
 #highscore-list{
     list-style:none;
     padding-left:0;
@@ -38,7 +34,7 @@ a:active { text-decoration: none; }
 .button-container {
     display:flex;
     justify-content: space-between;
-    width:20vw;
+    width: 20vw;
     flex-direction: row;
 }
 
@@ -53,10 +49,18 @@ a:active { text-decoration: none; }
     flex-direction: column;
     margin: 0 auto;
 }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 100px;
+    z-index: 10000;
+}
 @media screen and (max-width: 575px){
 
 .button-container{
-    width:48vw;
+    width:50vw;
 }    
 .container {
     display: flex;
@@ -67,6 +71,21 @@ a:active { text-decoration: none; }
     flex-direction: column;
     
 }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    width: 60%;
+    margin: 0 auto;
+    z-index: 10000;
+}
 
 }
+@media screen and (max-width: 768px){
+
+    .button-container{
+        width:30vw;
+    }    
+
+}
+
     
