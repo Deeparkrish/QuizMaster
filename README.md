@@ -12,12 +12,14 @@ The following have been incorporated in this project :
   * The user is presented with a question with multiple choice answer options, incorporated as buttons.
   * When the user clicks his answer choice, he is navigated to the next question.
   * If the user answers incorrectly the time value is deducted by 10s . 
-  * A total of five questions are presented to the user. 
+  * A total of five questions are presented to the user
+  * The question bank has been created as an array of objects -question,option1,option2,option3,option4 and the correct answerchoice.
+  * Each option has been added a data attribute value , to easily identfy the option chosen by the user.
   * The game ends when all questions are answered or the timer reaches 0.
   * Once the game is over, the user saves is name and score. 
+  * The highest score is calculated -using Array.sort(a,b) function. 
   * This data is stored as array of objects (name,score) in the localstorage using Web APIs.
-  * The highest score is calculated -using sort function. 
-  * The high score list is displayed(highest first) for the user,  when he hits saves his score details and clicks submit button.
+  * The high score list is retrieved from Local storage and displayed, when the user saves his score details and clicks submit button.
   * The user is given an option to play the game again, which navigates him to home page.
   * The user is also  given an option to clear the scores, which  clears the data in local storage.
 
