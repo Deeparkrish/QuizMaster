@@ -20,6 +20,8 @@ The following have been incorporated in this project :
   * The high score list is displayed(highest first) for the user,  when he hits saves his score details and clicks submit button.
   * The user is given an option to play the game again, which navigates him to home page.
   * The user is also  given an option to clear the scores, which  clears the data in local storage.
+  
+ **Mock up**
 
 
 ![image](https://github.com/Deeparkrish/QuizMaster/blob/main/assets/img/qm1.jpg)
