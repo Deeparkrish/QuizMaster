@@ -7,7 +7,7 @@
  clean, polished, and responsive user interface
 
 The following have been incorporated in this project :
-  * A landing page that explains the game rules ahd has a start button.
+  * A landing page that explains the game rules and has a start button.
   * When the user clicks the start button, a countdown down timer begins 
   * The user is presented with a question with multiple choice answer options, incorporated as buttons.
   * When the user clicks his answer choice, he is navigated to the next question.
