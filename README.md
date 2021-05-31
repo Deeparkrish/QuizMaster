@@ -1,4 +1,4 @@
-**A coding quiz game **
+**QUIZ MASTER -A coding quiz game **
 
 **Objective**
 
