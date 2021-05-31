@@ -1,36 +1,45 @@
-**Password Generator with starter code**
+**A coding quiz game **
 
 **Objective**
 
- An application that an employee can use to generate a random password based on criteria that user has selected.
- This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript. 
+ An timed coding quiz appplication with multiple-choice questions
+ This app will run in the browser, and will feature dynamically updated HTML, CSS powered by JavaScript and Web APIS with a
+ clean, polished, and responsive user interface
 
-The following have been incorporated in this project in the Java script function :
-  * When the user clicks the button to generate a password-  A prompt appears asking for the password length between 8-128 characters.
-  * The user input for the password lengt and type has been validated 
-  * The user is prompted for character types to include in the password- He is given an option choose lowercase, uppercase, numeric, and/or special character.
-  * The user input is validated, making sure that at least one character type is selected.
-  * Based on the user's choice of character types, the corresponding arrays are merged into a single CharArray.
-  * An index value is obtained using Math.random() function on the array.
-  * The character at that index is chosen and added to the password string.
-  * A final check is done to make sure that all the character types requested by the user occur atleast one in the password string. 
-  * The generated password is returned to the main function as per the user requirement.
-  * The password is written to the page.
+The following have been incorporated in this project :
+  * A landing page that explains the game rules ahd has a start button.
+  * When the user clicks the start button, a countdown down timer begins 
+  * The user is presented with a question with multiple choice answer options, incorporated as buttons.
+  * When the user clicks his answer choice, he is navigated to the next question.
+  * If the user answers incorrectly the time value is deducted by 10s . 
+  * A total of five questions are presented to the user. 
+  * The game ends when all questions are answered or the timer reaches 0.
+  * Once the game is over, the user saves is name and score. 
+  * This data is stored as array of objects (name,score) in the localstorage using Web APIs.
+  * The highest score is calculated -using sort function. 
+  * The high score list is displayed(highest first) for the user,  when he hits saves his score details and clicks submit button.
+  * The user is given an option to play the game again, which navigates him to home page.
+  * The user is also  given an option to clear the scores, which  clears the data in local storage.
 
 
-![image](https://github.com/Deeparkrish/Passwordgenerator/blob/main/IMG_5738.jpeg)
+![image](https://github.com/Deeparkrish/QuizMaster/blob/main/assets/img/qm1.jpg)
 
 
-![image](https://user-images.githubusercontent.com/82689013/119292523-6dec6780-bc05-11eb-9d2a-cfbc3f013bb6.png)
+![image](https://github.com/Deeparkrish/QuizMaster/blob/main/assets/img/qm2.jpg)
 
+
+![image](https://github.com/Deeparkrish/QuizMaster/blob/main/assets/img/qm3.jpg)
+
+![image](https://github.com/Deeparkrish/QuizMaster/blob/main/assets/img/qm4.jpg)
 
 **Built With**
 Java Script
+Web APIs
 HTML
 CSS
 
 **Website:**
-https://deeparkrish.github.io/Passwordgenerator/
+deeparkrish.github.io/quizmaster/
 
 
 **Contribution**
