@@ -20,6 +20,14 @@
             </div>
         </div>        
     </div>
-    <script src ="./assets/js/highscore.js"></script> 
+    <script src ="./assets/js/highscore.js">
+    function preventBack() {
+            window.history.forward(); 
+        }
+          
+        setTimeout("preventBack()", 0);
+          
+        window.onunload = function () { null };
+    </script> 
 </body>
 </html>

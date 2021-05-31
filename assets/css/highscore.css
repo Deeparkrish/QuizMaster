@@ -1,5 +1,9 @@
 /* style the list items to display score  */
+*{
+    margin :0;
+    padding:0;
 
+}
 #highscore-list{
     list-style:none;
     padding-left:0;
@@ -34,8 +38,20 @@ a:active { text-decoration: none; }
 .button-container {
     display:flex;
     justify-content: space-between;
-    width:25vw;
+    width:20vw;
     flex-direction: row;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    /* width: 80vw; */
+    
+    align-items: center;
+    max-width: 80rem;
+    flex-direction: column;
+    margin: 0 auto;
 }
 @media screen and (max-width: 575px){
 
