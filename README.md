@@ -20,7 +20,11 @@ The following have been incorporated in this project :
   * The high score list is displayed(highest first) for the user,  when he hits saves his score details and clicks submit button.
   * The user is given an option to play the game again, which navigates him to home page.
   * The user is also  given an option to clear the scores, which  clears the data in local storage.
-  
+
+ **Pseudocode**
+ ![image](https://github.com/Deeparkrish/QuizMaster/blob/main/assets/img/pseudo1.jpeg)
+ ![image](https://github.com/Deeparkrish/QuizMaster/blob/main/assets/img/pseudo2.jpeg)
+ ![image](https://github.com/Deeparkrish/QuizMaster/blob/main/assets/img/pseudo3.jpeg)
  **Mock up**
 
 
@@ -33,6 +37,7 @@ The following have been incorporated in this project :
 ![image](https://github.com/Deeparkrish/QuizMaster/blob/main/assets/img/qm3.jpg)
 
 ![image](https://github.com/Deeparkrish/QuizMaster/blob/main/assets/img/qm4.jpg)
+
 
 **Built With**
 Java Script
