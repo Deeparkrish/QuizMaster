@@ -25,9 +25,11 @@ var saveScoreButtonEl =  document.getElementById("save-score");
 const nameEl =document.getElementById("username");
 //Arrya of objects to store name-score in local storage 
 const highScoreArr = JSON.parse(localStorage.getItem("highScoreArr")) ||[];
-//  variable to set count 
+//  variable to set count to display top 5 scores 
 const TOP_SCORES =5;
 // Question Bank array of objects  - Question,choices and answer
+//countdwon timer variable 
+var countDownTimer;
 const questionBankArr =[
     {
         question:"Q1. What function returns a random number between 0 (inclusive),  and 1?",
@@ -73,7 +75,7 @@ const questionBankArr =[
     }
 
 ];
-var countDownTimer;
+
 startButtonEl.addEventListener("click", startQuiz);
 
 //Initialize 
@@ -205,18 +207,23 @@ saveScoreButtonEl.addEventListener("click",function(event) {
    
     const mostRecentscore = JSON.parse(localStorage.getItem("score"));
     const playername = nameEl.value;
-    console.log(mostRecentscore);    
+    console.log(mostRecentscore);   
+    //Create an object for name and score  
     const scoreObj={
         score: mostRecentscore,
         name:playername
     };
+    //push in array 
     highScoreArr.push(scoreObj);
-    localStorage.setItem("highScoreArr",JSON.stringify(highScoreArr));
-    highScoreArr.sort((a,b) => b.score -a.score);
-     highScoreArr.splice(TOP_SCORES);
-    // // localStorage.setItem("highscorearray",JSON.stringify(highScoreArr));
-  // highScoreButtonEl.classList.remove("hide");
-    // saveScoreButtonEl.classList.add("hide");
+    
+    //sort the arrray in descending order of score with top score first 
+    highScoreArr.sort((a,b) => b.score - a.score);
+    //splice  the array to show the top 5 scores 
+     highScoreArr.splice(5);
+     // save in local storage 
+     localStorage.setItem("highScoreArr",JSON.stringify(highScoreArr));
+ 
+    // got to the page that displays high  scores 
     return window.location.href="./highscore.html";
   
 }) ;
